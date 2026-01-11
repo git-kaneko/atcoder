@@ -1,5 +1,5 @@
 main :: IO ()
 main = do
-  _ <- fmap (read :: String -> Int) . words <$> getLine
-  ns <- fmap (read :: String -> Int) . words <$> getLine
-  putStrLn $ show (minimum ns) ++ " " ++ show (maximum ns) ++ " " ++ show (sum ns)
+  _ <- getLine
+  ns <- map read . words <$> getLine :: IO [Int]
+  putStrLn $ unwords $ map show [minimum ns, maximum ns, sum ns]
